@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/employees', 'EmployeeController');
+Route::put('/employees/enable/{employee}', 'EmployeeController@enable')->name('employees.enable');
+Route::put('/employees/disable/{employee}', 'EmployeeController@disable')->name('employees.disable');
